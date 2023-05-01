@@ -81,8 +81,69 @@ default:
 }
 ```
 
+## 6.2 반복문
+- 같거나 비슷한 명령을 반복 실행할 때는 반복문 만큼 중요한 것이 없습니다.
+### 6.2.1 for-in 구문
+```swift
+for i in 0...2{
+  print(i)
+}
+//0
+//1
+//2
 
+for i in 0...5{
+  if i.isMultiple(of:2) {
+    print(i)
+    continue //continue 키워드를 사용하면 바로 다음 시퀀스로 건너뜁니다.
+  }
+  
+  print("\(i) == 홀수")
+}
+//0
+//1 == 홀수
+//2 
+//3 == 홀수
+//4
+//5 == 홀수
 
+let friends = [String: Int] = ["Jay":35, "Joe":29, "Jenny":31]
+
+for tuple in friends {
+  print(tuple)
+}
+
+//("Joe", 29)
+//("Jay", 35)
+//("Jenny", 31)
+
+let 주소: [String: String] = ["도": "충청북도", "시군구":"청주시 청원구", "동읍면":"율량동"]
+
+for (키,값) in 주소{
+  print("\(키): \(값)")
+}
+```
+
+### 6.2.2 while 구문
+```swift
+var names: [String] = ["Joker", "Jenny", "Nova", "yagom"]
+
+while names.isEmpty == false{
+  print("Good bye \(names.removeFirst())")
+}
+```
+### 6.2.3 repeat-while구문
+- repeat-while구문은 다른 프로그래밍 언어의 do-while 구문과 크게 다르지 않습니다.
+- repeat 블록의 코드를 최초 1회 실행한 후, while 다음의 조건이 성립하면 블록 내부의 코드를 반복 실행합니다.
+```swift
+var names: [String] = ["John", "Jenny", "Joe", "yagom"]
+
+repeat{
+  print("Good bye \(names.removeFirst())")
+}while names.isEmpty == false
+```
+## 6.3 구문 이름표
+- 반복문을 작성하다 보면 종종 반복문을 중첩으로 작성하게 됩니다. 이때 반복문을 제어하는 키워드(break, continue등) 가 어떤 범위에 적용되어야 하는지 애매하거나 큰 범위의 반복문을 종료할 때 사용합니다.
 
 
 
